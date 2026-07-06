@@ -70,23 +70,89 @@ numbers are stable API, every claim cites a real file path, and each page
 ends with explicit `Invariants` and `DO NOT` sections. Full model in
 [`references/wiki-model.md`](references/wiki-model.md).
 
-## Quick start
+## Install
 
-**Claude Code** — drop the folder into your skills directory (or install
-the packaged `.skill`), then in any repo:
+Cerebro is a Claude Code skill: it lives in a `skills` directory, and the
+agent loads it at session start. Pick one of the methods below.
+
+### One-liner (recommended)
+
+Runs the bundled Python installer straight from the repo — no clone needed.
+It auto-detects your platform, drops the skill into the right place, sets the
+helper scripts executable, and never double-nests the folder:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/itboy79/cerebro/main/install.py | python3 -
+```
+
+Installs to your **personal** skills dir (`~/.claude/skills/cerebro`), so
+it's available in every project. Add flags after `python3 -` like so:
+
+```bash
+# install for the current repo only (./.claude/skills/cerebro)
+curl -sSL https://raw.githubusercontent.com/itboy79/cerebro/main/install.py | python3 - --project
+
+# install into a custom skills directory
+curl -sSL https://raw.githubusercontent.com/itboy79/cerebro/main/install.py | python3 - --dir ~/my-skills
+
+# target another SKILL.md agent (openclaw, cursor, codex, gemini)
+curl -sSL https://raw.githubusercontent.com/itboy79/cerebro/main/install.py | python3 - --agent openclaw
+```
+
+### Clone, then install
+
+```bash
+git clone https://github.com/itboy79/cerebro.git
+cd cerebro
+python3 install.py            # personal · use --project or --dir PATH to change scope
+```
+
+Run from inside the checkout and the installer copies from local files
+instead of downloading. Re-running upgrades in place.
+
+### Manual (no Python)
+
+The skill is just a folder — copy the four skill parts in yourself:
+
+```bash
+git clone https://github.com/itboy79/cerebro.git
+mkdir -p ~/.claude/skills/cerebro
+cp -r cerebro/{SKILL.md,assets,references,scripts} ~/.claude/skills/cerebro/
+```
+
+> **Gotcha:** `SKILL.md` must sit *directly* inside
+> `~/.claude/skills/cerebro/` — not one level deeper. GitHub zips often add
+> an extra nesting folder; if `/cerebro` doesn't load, that's usually why.
+
+### Verify & run
+
+Skills load at session start, so **restart Claude Code** after installing,
+then in any repo:
 
 ```
 /cerebro
 ```
 
-First run scans and generates `wiki/`; every later run syncs it.
+First run scans and generates `wiki/`; every later run syncs it. Confirm the
+install with `ls ~/.claude/skills/cerebro` (you should see `SKILL.md`,
+`assets`, `references`, `scripts`) or by asking Claude Code which skills it
+has available.
 
-**Cursor / Windsurf / Aider / anything else** — add `SKILL.md` to your
+> Skills need Claude Code (`claude --version` to check) or any agent that
+> reads the [`SKILL.md`](https://agentskills.io) format. Install Claude Code
+> from https://claude.ai/install.
+
+### Other harnesses
+
+**Cursor / Windsurf / Aider / raw API / Ollama** — add `SKILL.md` to your
 project rules or paste it on demand, then say "run /cerebro scan".
-Per-harness notes in [`references/providers.md`](references/providers.md).
+Per-harness notes and the huge-repo delegation pattern live in
+[`references/providers.md`](references/providers.md).
 
-**Configuration** lives in `.cerebro/config.json` (created on first run
-from [`assets/config.example.json`](assets/config.example.json)):
+## Configuration
+
+Config lives in `.cerebro/config.json` (created on first run from
+[`assets/config.example.json`](assets/config.example.json)):
 
 ```json
 {
@@ -127,6 +193,7 @@ repo, Cerebro borrows its cooks as default delegates — but never requires it.
 ```
 cerebro/
 ├── SKILL.md                     the protocol
+├── install.py                   stdlib installer (one-liner or clone-and-run)
 ├── assets/
 │   ├── banner.svg
 │   └── config.example.json
