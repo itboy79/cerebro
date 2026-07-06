@@ -1,0 +1,21 @@
+{
+  "wiki_dir": "wiki",
+  "language": "en",
+  "pages": "auto",
+  "ignore": [
+    "node_modules",
+    ".git",
+    "dist",
+    "build",
+    "target",
+    ".next",
+    "vendor",
+    "__pycache__"
+  ],
+  "max_file_kb": 256,
+  "laws": {
+    "source_of_truth": true,
+    "sync_every_task": true,
+    "declare_drift": true
+  }
+}

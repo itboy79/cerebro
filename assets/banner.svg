@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-label="CEREBRO — every file, one mind">
+  <defs>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#8F5BFF" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#8F5BFF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#8F5BFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0B0B14"/>
+      <stop offset="100%" stop-color="#0E0C1A"/>
+    </linearGradient>
+    <!-- axon paths for traveling impulses -->
+    <path id="ax1" d="M150 205 L205 150 L268 170 L320 135"/>
+    <path id="ax2" d="M180 245 L240 220 L295 240 L330 205"/>
+    <path id="ax3" d="M205 150 L240 220"/>
+    <path id="ax4" d="M268 170 L295 240"/>
+    <path id="ax5" d="M150 205 L180 245"/>
+    <path id="ax6" d="M320 135 L330 205"/>
+    <path id="ax7" d="M240 120 L205 150"/>
+    <path id="ax8" d="M240 120 L268 170"/>
+    <path id="ax9" d="M295 240 L285 278"/>
+  </defs>
+
+  <rect width="1280" height="400" fill="url(#fade)"/>
+
+  <!-- faint background neurons -->
+  <g fill="#3A3654">
+    <circle cx="520" cy="55" r="2"/><circle cx="620" cy="340" r="2"/><circle cx="720" cy="60" r="2"/>
+    <circle cx="820" cy="330" r="2"/><circle cx="930" cy="70" r="2"/><circle cx="1030" cy="320" r="2"/>
+    <circle cx="1130" cy="90" r="2"/><circle cx="1210" cy="290" r="2"/><circle cx="1240" cy="150" r="2"/>
+    <circle cx="470" cy="330" r="2"/><circle cx="1080" cy="200" r="2"/><circle cx="60" cy="60" r="2"/>
+    <circle cx="55" cy="330" r="2"/><circle cx="420" cy="45" r="2"/>
+  </g>
+
+  <circle cx="238" cy="192" r="185" fill="url(#glow)"/>
+
+  <!-- brain outline (side profile, facing left) -->
+  <g stroke="#8F5BFF" fill="none">
+    <path d="M132 236
+             C 96 214, 92 158, 130 128
+             C 148 92, 208 74, 252 84
+             C 306 70, 356 100, 362 148
+             C 368 188, 352 216, 328 228
+             C 344 236, 348 258, 332 270
+             C 314 284, 286 280, 278 264
+             C 264 274, 240 274, 228 264
+             C 196 270, 154 258, 132 236 Z"
+          stroke-width="2.5" opacity="0.95"/>
+    <!-- brain stem -->
+    <path d="M278 264 C 282 280, 278 292, 268 302" stroke-width="2.5" opacity="0.95" stroke-linecap="round"/>
+    <!-- cortical folds: dotted = latent -->
+    <path d="M150 140 C 175 128, 185 150, 165 165" stroke-width="1.4" stroke-dasharray="2 6" stroke-linecap="round" opacity="0.55"/>
+    <path d="M255 95 C 270 112, 255 128, 238 122" stroke-width="1.4" stroke-dasharray="2 6" stroke-linecap="round" opacity="0.55"/>
+    <path d="M330 160 C 315 172, 320 190, 338 192" stroke-width="1.4" stroke-dasharray="2 6" stroke-linecap="round" opacity="0.55"/>
+    <path d="M170 215 C 195 205, 210 225, 195 240" stroke-width="1.4" stroke-dasharray="2 6" stroke-linecap="round" opacity="0.55"/>
+    <path d="M300 255 C 312 262, 322 258, 326 248" stroke-width="1.4" stroke-dasharray="2 6" stroke-linecap="round" opacity="0.55"/>
+  </g>
+
+  <!-- axons: current flowing (animated dash offset) -->
+  <g stroke="#8F5BFF" fill="none" stroke-width="1.3" stroke-linecap="round" opacity="0.6">
+    <use href="#ax1" xlink:href="#ax1" stroke-dasharray="3 9"><animate attributeName="stroke-dashoffset" values="0;-96" dur="2.4s" repeatCount="indefinite"/></use>
+    <use href="#ax2" xlink:href="#ax2" stroke-dasharray="3 9"><animate attributeName="stroke-dashoffset" values="0;-96" dur="3s" repeatCount="indefinite"/></use>
+    <use href="#ax3" xlink:href="#ax3" stroke-dasharray="3 9"><animate attributeName="stroke-dashoffset" values="0;-84" dur="2.8s" repeatCount="indefinite"/></use>
+    <use href="#ax4" xlink:href="#ax4" stroke-dasharray="3 9"><animate attributeName="stroke-dashoffset" values="0;-84" dur="2.2s" repeatCount="indefinite"/></use>
+    <use href="#ax5" xlink:href="#ax5" stroke-dasharray="3 9"><animate attributeName="stroke-dashoffset" values="0;-84" dur="3.2s" repeatCount="indefinite"/></use>
+    <use href="#ax6" xlink:href="#ax6" stroke-dasharray="3 9"><animate attributeName="stroke-dashoffset" values="0;-84" dur="2.6s" repeatCount="indefinite"/></use>
+    <use href="#ax7" xlink:href="#ax7" stroke-dasharray="3 9"><animate attributeName="stroke-dashoffset" values="0;-72" dur="2.9s" repeatCount="indefinite"/></use>
+    <use href="#ax8" xlink:href="#ax8" stroke-dasharray="3 9"><animate attributeName="stroke-dashoffset" values="0;-72" dur="2.1s" repeatCount="indefinite"/></use>
+    <use href="#ax9" xlink:href="#ax9" stroke-dasharray="3 9"><animate attributeName="stroke-dashoffset" values="0;-60" dur="2.5s" repeatCount="indefinite"/></use>
+  </g>
+
+  <!-- electrical impulses traveling along axons -->
+  <g fill="#FFFFFF">
+    <circle r="3"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#ax1" xlink:href="#ax1"/></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="2.4s" repeatCount="indefinite"/></circle>
+    <circle r="3"><animateMotion dur="3s" begin="0.8s" repeatCount="indefinite"><mpath href="#ax2" xlink:href="#ax2"/></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle r="2.4"><animateMotion dur="1.8s" begin="0.4s" repeatCount="indefinite"><mpath href="#ax3" xlink:href="#ax3"/></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="1.8s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle r="2.4"><animateMotion dur="2s" begin="1.2s" repeatCount="indefinite"><mpath href="#ax6" xlink:href="#ax6"/></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2s" begin="1.2s" repeatCount="indefinite"/></circle>
+    <circle r="2.4"><animateMotion dur="2.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#ax8" xlink:href="#ax8"/></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="1.6s" repeatCount="indefinite"/></circle>
+    <circle r="2.4"><animateMotion dur="2.1s" begin="0.2s" repeatCount="indefinite"><mpath href="#ax9" xlink:href="#ax9"/></animateMotion>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.1s" begin="0.2s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- neurons (somas) firing -->
+  <g fill="#8F5BFF">
+    <circle cx="150" cy="205" r="4.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.4s" repeatCount="indefinite"/></circle>
+    <circle cx="205" cy="150" r="4.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.8s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle cx="268" cy="170" r="4.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.2s" begin="1s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="135" r="4.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" begin="1.4s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="245" r="4.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="3s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="220" r="4.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <circle cx="295" cy="240" r="4.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.7s" begin="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="330" cy="205" r="4.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.3s" begin="0.7s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="120" r="4.5"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.9s" begin="1.2s" repeatCount="indefinite"/></circle>
+    <circle cx="285" cy="278" r="4"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" begin="2s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- synaptic flashes (halos) -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="1">
+    <circle cx="240" cy="220" r="6"><animate attributeName="r" values="5;12" dur="2.5s" begin="0.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.9;0" dur="2.5s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <circle cx="268" cy="170" r="6"><animate attributeName="r" values="5;12" dur="2.2s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.9;0" dur="2.2s" begin="1s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="245" r="6"><animate attributeName="r" values="5;12" dur="3s" begin="0.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.9;0" dur="3s" begin="0.3s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- wordmark -->
+  <g font-family="'JetBrains Mono','SFMono-Regular',Menlo,Consolas,monospace">
+    <text x="440" y="192" fill="#F4F2FF" font-size="76" font-weight="700" letter-spacing="22">CEREBRO</text>
+    <text x="444" y="236" fill="#8F5BFF" font-size="21" letter-spacing="6">EVERY FILE · ONE MIND</text>
+    <text x="444" y="286" fill="#8A86A8" font-size="15" letter-spacing="1.5">scan the repo → write the wiki-OS → develop from truth</text>
+    <text x="444" y="312" fill="#5C5878" font-size="13" letter-spacing="1.5">model-agnostic · Karpathy-style LLM-first wiki · a MiraiLab skill</text>
+  </g>
+
+  <!-- corner ticks -->
+  <g stroke="#4A4470" stroke-width="2">
+    <path d="M24 24 h18 M24 24 v18" fill="none"/>
+    <path d="M1256 376 h-18 M1256 376 v-18" fill="none"/>
+  </g>
+</svg>
